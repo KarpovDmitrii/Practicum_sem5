@@ -1,7 +1,7 @@
 from playwright.sync_api import expect
 from pages.login_po import LoginPage
 
-def test_login(page):
+def test_incorrect_login(page):
     login_page = LoginPage(page)
     login_page.navigate()
     login_page.login("standard_user", "wrong_password")

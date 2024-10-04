@@ -1,16 +1,14 @@
-class LoginPage:
+from locators.products import Products
+
+class ProductsPage:
     def __init__(self, page):
         self.page = page
-        self.username = page.locator("[data-test=\"username\"]")
-        self.password = page.locator("[data-test=\"password\"]")
-        self.login_button = page.locator("[data-test=\"login-button\"]")
-        self.title = page.locator("[data-test=\"title\"]")
-        self.error = page.locator("[data-test=\"error\"]")
+        self.add_to_cart_button = page.locator(Products.ADD_TO_CART_BUTTON)
+        self.go_to_cart_link = page.locator(Products.GO_TO_CART_LINK)
+        self.count_in_cart = page.locator(Products.COUNT_IN_CART)
 
-    def navigate(self) -> None:
-        self.page.goto("https://www.saucedemo.com/")
+    def add_to_cart(self) -> None:
+        self.add_to_cart_button.click()
 
-    def login(self, username: str, password: str) -> None:
-        self.username.fill(username)
-        self.password.fill(password)
-        self.login_button.click()
+    def go_to_cart(self) -> None:
+        self.go_to_cart_link.click()

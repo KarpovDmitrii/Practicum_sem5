@@ -1,11 +1,13 @@
+from locators.auth import Auth
+
 class LoginPage:
     def __init__(self, page):
         self.page = page
-        self.username = page.locator("[data-test=\"username\"]")
-        self.password = page.locator("[data-test=\"password\"]")
-        self.login_button = page.locator("[data-test=\"login-button\"]")
-        self.title = page.locator("[data-test=\"title\"]")
-        self.error = page.locator("[data-test=\"error\"]")
+        self.username = page.locator(Auth.USERNAME)
+        self.password = page.locator(Auth.PASSWORD)
+        self.login_button = page.locator(Auth.LOGIN_BUTTON)
+        self.title = page.locator(Auth.TITLE)
+        self.error = page.locator(Auth.ERROR)
 
     def navigate(self) -> None:
         self.page.goto("https://www.saucedemo.com/")
